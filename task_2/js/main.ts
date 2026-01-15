@@ -10,6 +10,8 @@ interface TeacherInterface {
     workTeacherTasks(): string;
 }
 
+type Subjects = "Math" | "History";
+
 class Director implements DirectorInterface {
     workFromHome(): string {
         return "Working from home";
@@ -54,5 +56,14 @@ export function executeWork(employee: Director | Teacher): void {
         console.log(employee.workDirectorTasks());
     } else {
         console.log(employee.workTeacherTasks());
+    }
+}
+
+export function teachClass(todayClass: Subjects): string {
+    if (todayClass === "Math") {
+        return "Teaching Math";
+    }
+    if (todayClass === "History") {
+        return "Teaching History";
     }
 }
